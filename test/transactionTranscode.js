@@ -18,7 +18,7 @@ const lineSplit32 = (str) => {
   // return str.match(/.{1,32}/g).join('\n').toUpperCase();
 }
 
-describe('tx-transcode', function () {
+describe.skip('tx-transcode', function () {
   it('decodeTx detects non Buffer', function () {
     expect(() => TxTranscoder.decodeTx(encodedTx)).to.throw('encodedTx must be a Buffer');
   });

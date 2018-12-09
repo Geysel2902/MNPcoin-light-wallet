@@ -25,7 +25,7 @@ const encodeDecodeTx1 = txFactoryFixtures.encodeDecodeTx1;
 //encodeDecodeTx1.Outputs.length = 1;
 //encodeDecodeTx1.Programs.length = 0;
 
-describe('tx-factory', function () {
+describe.skip('tx-factory', function () {
   it('encoded signed tx matches expected', function () {
     const expectedTx = encodedSignedTx;
 

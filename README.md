@@ -1,6 +1,7 @@
 # mnpcoin-light-wallet
 
-### to check if your node is working run:
+runs on mnpcoin testnet.
+http://45.76.238.162:3001/
 
 ### requirements
 

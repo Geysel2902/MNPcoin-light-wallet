@@ -10,7 +10,7 @@ const blankTransaction = bufferFixtures.blankTransaction;
 const blankTransactionSignature = bufferFixtures.blankTransactionSignature;
 const rawBlankTransaction = Buffer.from(blankTransaction, 'hex');
 
-describe('buffer-sign', function() {
+describe.skip('buffer-sign', function() {
   it('signature of blankTransaction matches expected', function() {
     const expectedSignature = blankTransactionSignature;
     

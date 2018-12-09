@@ -1,6 +1,7 @@
 {
-	"privateKey": "be1da20c6a33aa437dd47c7797f6a5b96aafde39dde24e10aaa0a3763a0cb335",
-	"publicKey": "037d5290f31135fd74e5aae50ea70e07bc86ac5dbf4c1279d4a29a2bda30f0c665",
+	"privateWif": "KudxEakxJBqreFrShunUtk6LxLo2R899X8wuP81j82bF1zAvVVKC",
+	"privateKey": "d0cbdcc910e0937b53186687ffb9e2aab2e5a47081dc6d3eeb006f407601d413",
+	"publicKey": "027ad47242be0789acd0cbe2b8c78ecc799780c9982caef4f7e284fe1ea22f22b3",
 	"scriptHash": "21C624CAB1438F8FDDE9933222A8F1DD699C75F802",
-	"address": "EbDbMuMQcNhuyuyJdJT2DqN38bxiApQRgt"
+	"address": "cdpaajkxFQBTjpmz15Wot23JiAwxemfJAX"
 }

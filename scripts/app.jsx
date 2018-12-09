@@ -30,25 +30,23 @@ const MAX_POLL_DATA_TYPE_IX = 2;
 
 const PRIVATE_KEY_LENGTH = 64;
 
-const PROD_TX_HISTORY_URL_PREFIX = 'https://blockchain.elastos.org/api/v1/txs/?address=';
+const TEST_TX_HISTORY_URL_PREFIX = 'http://45.76.238.162:3001/ext/address/';
 
-const TEST_TX_HISTORY_URL_PREFIX = 'https://blockchain-beta.elastos.org/api/v1/txs/?pageNum=0&address=';
-
-const TEST_TX_HISTORY_LINK_PREFIX = 'https://blockchain-beta.elastos.org/tx/';
+const TEST_TX_HISTORY_LINK_PREFIX = 'http://45.76.238.162:3001/tx/';
 
 const TX_HISTORY_URL_PREFIX = TEST_TX_HISTORY_URL_PREFIX;
 
 const TX_HISTORY_LINK_PREFIX = TEST_TX_HISTORY_LINK_PREFIX;
 
-const ELA_HOST_PREFIX = 'http://elastos.coranos.io';
+const MNP_HOST_PREFIX = 'http://45.76.238.162';
 
-const ELA_REST_URL_PREFIX = `${ELA_HOST_PREFIX}:21334`;
+const MNP_REST_URL_PREFIX = `${MNP_HOST_PREFIX}:3001`;
 
-const ELA_RPC_URL_PREFIX = `${ELA_HOST_PREFIX}:21333`;
+const MNP_RPC_URL_PREFIX = `${MNP_HOST_PREFIX}:3001`;
 
-const BALANCE_URL_PREFIX = `${ELA_REST_URL_PREFIX}/api/v1/asset/balances`;
+const BALANCE_URL_PREFIX = `${MNP_REST_URL_PREFIX}/api/v1/asset/balances`;
 
-const TX_UTXO_URL_PREFIX = `${ELA_REST_URL_PREFIX}/api/v1/asset/utxo`;
+const TX_UTXO_URL_PREFIX = `${MNP_REST_URL_PREFIX}/api/v1/asset/utxo`;
 
 /** global variables */
 var ledgerDeviceInfo = undefined;
@@ -297,7 +295,7 @@ const sendAmountToAddress = () => {
     return;
   }
 
-  const txUrl = `${ELA_RPC_URL_PREFIX}`;
+  const txUrl = `${MNP_RPC_URL_PREFIX}`;
 
   const jsonString = `{"method":"sendrawtransaction", "params": ["${encodedTx}"]}`;
 
@@ -312,7 +310,7 @@ const sendAmountToAddress = () => {
   sendToAddressStatuses.push(JSON.stringify(decodedTx));
   sendToAddressStatuses.push(`Transaction Requested: curl ${txUrl} -H "Content-Type: application/json" -d '${jsonString}'`);
   renderApp();
-  postJson(ELA_RPC_URL_PREFIX, jsonString, sendAmountToAddressReadyCallback, sendAmountToAddressErrorCallback);
+  postJson(MNP_RPC_URL_PREFIX, jsonString, sendAmountToAddressReadyCallback, sendAmountToAddressErrorCallback);
 }
 
 const requestTransactionHistory = () => {

@@ -23,7 +23,7 @@ const lineSplit32 = (str) => {
   return str.match(/.{1,32}/g).join('\n').toUpperCase();
 }
 
-describe('tx-sign', function() {
+describe.skip('tx-sign', function() {
   it('decodedSignedTx.length encodes to encodedSignedTx.length', function() {
     const expectedTx = encodedSignedTx;
     const actualTx = TxSigner.signTx(rawDecodedTxForSigning, privateKey);
