@@ -362,7 +362,7 @@ const hideEverything = () => {
   hide('your-address');
   hide('private-key-login');
   hide('ledger-login');
-  hide('elastos-branding');
+  hide('mnpcoin-branding');
   hide('send-spacer-01');
 }
 
@@ -371,7 +371,7 @@ const showLogin = () => {
   hideEverything();
   show('private-key-login');
   show('ledger-login');
-  show('elastos-branding');
+  show('mnpcoin-branding');
 }
 
 const showHome = () => {
@@ -379,7 +379,7 @@ const showHome = () => {
   show('transaction-more-info');
   show('transaction-list-small');
   show('your-address');
-  show('elastos-branding');
+  show('mnpcoin-branding');
   selectButton('home');
 }
 
@@ -473,8 +473,8 @@ class App extends React.Component {
             <table class="w100pct no_border">
               <tr>
                 <td class="black_on_offwhite h20px no_border user_select_none">
-                  <img class="valign_middle" src="artwork/elastos-black-small.svg"></img>
-                  Elastos</td>
+                  <img class="valign_middle" src="artwork/mnpcoin-black-small.svg"></img>
+                  MNPCoin</td>
               </tr>
               <tr>
                 <td class="white_on_purple h20px no_border"></td>
@@ -509,18 +509,18 @@ class App extends React.Component {
           </td>
           <td class="valign_top black_on_offwhite no_border no_padding">
             <table class="w626px black_on_offwhite no_border no_padding">
-              <tr id="elastos-branding" class="no_border no_padding">
+              <tr id="mnpcoin-branding" class="no_border no_padding">
                 <td class="h325px w595px no_border no_padding">
                   <div class="branding_container">
-                    <a href="https://elastos.org" onClick={(e) => onLinkClick(e)}>
+                    <a href="https://mnpcoin.org" onClick={(e) => onLinkClick(e)}>
                         <img class="branding_image" style={{
                             left: '175px',
                             top: '10px'
-                          }} src="artwork/elastos-branding.svg"></img>
+                          }} src="artwork/mnpcoin-branding.svg"></img>
                         <img style={{
                             left: '380px',
                             top: '130px'
-                          }} class="branding_image" src="artwork/elastos-white-large.svg"></img>
+                          }} class="branding_image" src="artwork/mnpcoin-white-large.svg"></img>
                     </a>
                   </div>
                 </td>
@@ -622,8 +622,8 @@ class App extends React.Component {
               <tr id="transaction-more-info">
                 <td class="black_on_white h20px darkgray_border">
                   <div class="gray_on_white">More Info</div>
-                  <br/>Tap on the transaction ID to view further details or visit http://blockchain.elastos.org
-                  <br/>Or https://blockchain-beta.elastos.org/tx/
+                  <br/>Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
+                  <br/>Or http://45.76.238.162:3001/
                 </td>
               </tr>
               <tr id="from-address">
