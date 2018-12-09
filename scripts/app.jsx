@@ -361,7 +361,7 @@ const hideEverything = () => {
   hide('transaction-list-large');
   hide('your-address');
   hide('private-key-login');
-  hide('ledger-login');
+//  hide('ledger-login');
   hide('mnpcoin-branding');
   hide('send-spacer-01');
 }
@@ -370,7 +370,7 @@ const showLogin = () => {
   clearGlobalData();
   hideEverything();
   show('private-key-login');
-  show('ledger-login');
+//  show('ledger-login');
   show('mnpcoin-branding');
 }
 
@@ -525,20 +525,10 @@ class App extends React.Component {
                   </div>
                 </td>
               </tr>
-              <tr id="ledger-login">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Ledger Status</div>
-                  <p>{ledgerDeviceInfo?ledgerDeviceInfo.message:undefined}
-                  </p>
-                  <p>
-                      <UseLedgerButton/>
-                  </p>
-                </td>
-              </tr>
               <tr id="private-key-login">
                 <td class="black_on_white h20px darkgray_border">
                   <div class="gray_on_white">Private Key</div>
-                  <p>Alternatively, enter private key manually.</p>
+                  <p>Enter private key.</p>
                   <p>
                     <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px" 
                          onClick={(e) => showPrivateKeyEntry()}>Enter Key</div>
