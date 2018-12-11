@@ -425,7 +425,7 @@ const clearGlobalData = () => {
 
     transactionHistoryStatus = 'No History Requested Yet';
     parsedTransactionHistory.length = 0;
-    
+
     unspentTransactionOutputsStatus = 'No UTXOs Requested Yet';
     parsedUnspentTransactionOutputs.length = 0;
     renderApp();
@@ -516,7 +516,7 @@ class App extends React.Component {
                         <img class="branding_image" style={{
                             left: '175px',
                             top: '10px'
-                          }} src="artwork/mnpcoin-branding.svg"></img>
+                          }} src="artwork/MPlogo2.svg"></img>
                         <img style={{
                             left: '380px',
                             top: '130px'
@@ -530,7 +530,7 @@ class App extends React.Component {
                   <div class="gray_on_white">Private Key</div>
                   <p>Enter private key.</p>
                   <p>
-                    <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px" 
+                    <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
                          onClick={(e) => showPrivateKeyEntry()}>Enter Key</div>
                   </p>
                 </td>
@@ -541,7 +541,7 @@ class App extends React.Component {
                    <br/>
                    <input style={{fontFamily: 'monospace'}} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
                    <br/>
-                   <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px" 
+                   <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
                    onClick={(e) => getPublicKeyFromPrivateKey()}>Use Private Key</div>
                  </td>
                </tr>
