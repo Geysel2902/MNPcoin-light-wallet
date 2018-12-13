@@ -514,12 +514,12 @@ class App extends React.Component {
                   <div class="branding_container">
                     <a href="https://mnpcoin.org" onClick={(e) => onLinkClick(e)}>
                         <img class="branding_image" style={{
-                            left: '175px',
-                            top: '10px'
+                            left: '280px',
+                            top: '0px'
                           }} src="artwork/MPlogo2.svg"></img>
                         <img style={{
                             left: '380px',
-                            top: '130px'
+                            top: '230px'
                           }} class="branding_image" src="artwork/mnpcoin-white-large.svg"></img>
                     </a>
                   </div>
