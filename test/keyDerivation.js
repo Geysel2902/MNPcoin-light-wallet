@@ -39,4 +39,9 @@ describe('key-derivation', function() {
     const actualScriptHash = AddressTranscoder.getProgramHashFromAddress(expectedAddress).toString('hex');
     assert.equal(actualScriptHash, expectedScriptHash, 'ScriptHash must match expected');
   });
+  it('public ECDSA derives expected scripthash', function() {
+    const expectedScriptHash = hexScriptHash;
+    const actualScriptHash = AddressTranscoder.getProgramHashFromPublicKey(expectedPublicKey).toString('hex');
+    assert.equal(actualScriptHash, expectedScriptHash, 'ScriptHash must match expected');
+  });
 });
