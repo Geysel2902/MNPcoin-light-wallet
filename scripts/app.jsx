@@ -520,7 +520,7 @@ class App extends React.Component {
                         <img style={{
                             left: '380px',
                             top: '230px'
-                          }} class="branding_image" src="artwork/mnpcoin-fondo-wallet.jpg"></img>
+                          }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
                     </a>
                   </div>
                 </td>
