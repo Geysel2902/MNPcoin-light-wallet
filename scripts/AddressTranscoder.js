@@ -35,24 +35,32 @@ const CreateSingleSignatureRedeemScript = (pubkey, signType) => {
 }
 
 const sha256hash160 = (input) => {
-  // console.log('sha256hash160.input', input);
+// console.log('sha256hash160.input', input);
   const sha256 = Sha256Hash.Sha256Hash(input);
-  // console.log('sha256hash160.sha256', sha256);
+// console.log('sha256hash160.sha256', sha256);
   const digest = new ripemd160();
   digest.update(sha256, 0, sha256.length);
   digest.end();
   const out = digest.read();
-  // console.log('sha256hash160.out', out);
+// console.log('sha256hash160.out', out);
   return out;
 }
 
 const ToCodeHash = (code, signType) => {
-  // console.log('sha256hash160.code', code);
+// sha256hash160(code);
+// console.log('ripemd160.in', code);
+// const input = Buffer.from(code);
+// const digest = new ripemd160();
+// digest.update(input, 0, input.length);
+// digest.end();
+// const out = digest.read();
+// console.log('ripemd160.out', out);
+
   const f = sha256hash160(code);
   const g = new Uint8Array(f.length + 1);
   // console.log('ToCodeHash.signType', signType);
   if (signType == 1) {
-    g[0] = 33;
+    g[0] = 0x58;
     ArrayCopy.arraycopy(f, 0, g, 1, f.length);
   } else if (signType == 2) {
     g[0] = 18;
@@ -64,9 +72,10 @@ const ToCodeHash = (code, signType) => {
     return null;
   }
   // console.log('ToCodeHash.f', f);
-  ArrayCopy.arraycopy(f, 0, g, 1, f.length);
-  // console.log('ToCodeHash.g', g);
-  return Buffer.from(g);
+// ArrayCopy.arraycopy(f, 0, g, 1, f.length);
+  const gBuf =  Buffer.from(g);
+// console.log('ToCodeHash.gBuf', gBuf.toString('hex').toUpperCase());
+  return gBuf;
 }
 
 const getProgram = (publicKey, singType) => {
@@ -81,16 +90,16 @@ const getAddressFromPublicKey = (publicKey) => {
 }
 
 const getProgramHashFromAddress = (address) => {
-  // console.log('getProgramHashFromAddress.address', address);
+// console.log('getProgramHashFromAddress.address', address);
   const programHashAndChecksum = bs58.decode(address);
-  // console.log('getProgramHashFromAddress.programHashAndChecksum', programHashAndChecksum);
+// console.log('getProgramHashFromAddress.programHashAndChecksum', programHashAndChecksum);
   const programHash = programHashAndChecksum.slice(0, 21);
-  // console.log('getProgramHashFromAddress.programHash', programHash);
+// console.log('getProgramHashFromAddress.programHash', programHash.toString('hex').toUpperCase());
   return programHash;
 }
 
 const getAddressFromProgramHash = (programHash) => {
-  // console.log('getAddressFromProgramHash.programHash', programHash);
+// console.log('getAddressFromProgramHash.programHash', programHash.toString('hex').toUpperCase());
   const f = SmartBuffer.fromBuffer(Sha256HashTwice(programHash));
   // console.log( 'ToAddress.f', f );
   const g = new SmartBuffer();
@@ -102,7 +111,7 @@ const getAddressFromProgramHash = (programHash) => {
   const gBuffer = g.toBuffer();
   // console.log( 'ToAddress.gBuffer', gBuffer );
   const address = bs58.encode(gBuffer);
-  // console.log( 'getAddressFromProgramHash.address', address );
+// console.log( 'getAddressFromProgramHash.address', address );
   return address;
 }
 

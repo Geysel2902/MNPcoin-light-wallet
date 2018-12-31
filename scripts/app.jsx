@@ -30,7 +30,7 @@ const MAX_POLL_DATA_TYPE_IX = 2;
 
 const PRIVATE_KEY_LENGTH = 64;
 
-const TEST_TX_HISTORY_URL_PREFIX = 'http://45.76.238.162:3001/ext/address/';
+const TEST_TX_HISTORY_URL_PREFIX = 'http://45.76.238.162:3001/ext/getaddress/';
 
 const TEST_TX_HISTORY_LINK_PREFIX = 'http://45.76.238.162:3001/tx/';
 

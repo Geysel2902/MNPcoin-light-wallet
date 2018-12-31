@@ -34,4 +34,8 @@ describe('key-derivation', function() {
     const actualAddress = AddressTranscoder.getAddressFromProgramHash(rawScriptHash);
     assert.equal(actualAddress, expectedAddress, 'Address must match expected');
   });
+  it('address derives expected scripthash', function() {
+    const actualScriptHash = AddressTranscoder.getProgramHashFromAddress(expectedAddress).toString('hex');
+    assert.equal(hexScriptHash, actualScriptHash, 'scripthash must match expected');
+  });
 });
