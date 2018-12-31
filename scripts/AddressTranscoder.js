@@ -9,9 +9,9 @@ const Sha256HashTwice = (buffer) => {
   return Sha256Hash.Sha256Hash(Sha256Hash.Sha256Hash(buffer));
 }
 
-const getSingleSignatureRedeemScript = (pubkey, signType) => {
+const getSingleSignatureRedeemScript = (pubkey) => {
   // console.log('getSingleSignatureRedeemScript.pubkey', pubkey);
-  const script = CreateSingleSignatureRedeemScript(pubkey, signType);
+  const script = CreateSingleSignatureRedeemScript(pubkey);
   const scriptBuffer = Buffer.from(script);
   // console.log('getSingleSignatureRedeemScript.scriptBuffer', scriptBuffer);
   const scriptBufferHex = scriptBuffer.toString('hex').toUpperCase();
@@ -19,17 +19,12 @@ const getSingleSignatureRedeemScript = (pubkey, signType) => {
   return scriptBufferHex;
 }
 
-const CreateSingleSignatureRedeemScript = (pubkey, signType) => {
+const CreateSingleSignatureRedeemScript = (pubkey) => {
   // console.log('CreateSingleSignatureRedeemScript.pubkey', pubkey);
   const script = new Uint8Array(35);
   script[0] = 33;
   ArrayCopy.arraycopy(pubkey, 0, script, 1, 33);
-  if (signType == 1) {
-    script[34] = 0xAC;
-  } else if (signType == 3) {
-    script[34] = 0xAD;
-  }
-
+  script[34] = 0xAC;
   // console.log('CreateSingleSignatureRedeemScript.script', script);
   return script;
 }
@@ -46,47 +41,32 @@ const sha256hash160 = (input) => {
   return out;
 }
 
-const ToCodeHash = (code, signType) => {
-// sha256hash160(code);
-// console.log('ripemd160.in', code);
-// const input = Buffer.from(code);
-// const digest = new ripemd160();
-// digest.update(input, 0, input.length);
-// digest.end();
-// const out = digest.read();
-// console.log('ripemd160.out', out);
-
+const ToCodeHash = (code) => {
+  // console.log('ToCodeHash.code', code.toString('hex').toUpperCase());
   const f = sha256hash160(code);
   const g = new Uint8Array(f.length + 1);
-  // console.log('ToCodeHash.signType', signType);
-  if (signType == 1) {
-    g[0] = 0x58;
-    ArrayCopy.arraycopy(f, 0, g, 1, f.length);
-  } else if (signType == 2) {
-    g[0] = 18;
-  } else if (signType == 3) {
-    g[0] = 103;
-  } else if (signType == 4) {
-    g[0] = 0x4B;
-  } else {
-    return null;
-  }
-  // console.log('ToCodeHash.f', f);
-// ArrayCopy.arraycopy(f, 0, g, 1, f.length);
-  const gBuf =  Buffer.from(g);
-// console.log('ToCodeHash.gBuf', gBuf.toString('hex').toUpperCase());
-  return gBuf;
+  g[0] = 0x58;
+  // console.log('ToCodeHash.f', f.toString('hex').toUpperCase());
+  ArrayCopy.arraycopy(f, 0, g, 1, f.length);
+  // console.log('ToCodeHash.g', g.toString('hex').toUpperCase());
+  const codeHash = Buffer.from(g);
+  // console.log('ToCodeHash.codeHash', codeHash.toString('hex').toUpperCase());
+  return codeHash;
 }
 
-const getProgram = (publicKey, singType) => {
-  return CreateSingleSignatureRedeemScript(publicKey, singType);
+const getProgram = (publicKey) => {
+  return CreateSingleSignatureRedeemScript(publicKey);
 }
-const getSingleSignProgramHash = (publicKey, signType) => {
-  return ToCodeHash(getProgram(publicKey, signType), signType);
+const getSingleSignProgramHash = (publicKey) => {
+  return ToCodeHash(getProgram(publicKey));
 }
 
 const getAddressFromPublicKey = (publicKey) => {
-  return getAddressFromProgramHash(getSingleSignProgramHash(Buffer.from(publicKey, 'hex'), 1));
+  return getAddressFromProgramHash(getProgramHashFromPublicKey(publicKey));
+}
+
+const getProgramHashFromPublicKey = (publicKey) => {
+  return getSingleSignProgramHash(Buffer.from(publicKey, 'hex'));
 }
 
 const getProgramHashFromAddress = (address) => {
@@ -115,6 +95,7 @@ const getAddressFromProgramHash = (programHash) => {
   return address;
 }
 
+exports.getProgramHashFromPublicKey = getProgramHashFromPublicKey;
 exports.getAddressFromPublicKey = getAddressFromPublicKey;
 exports.getAddressFromProgramHash = getAddressFromProgramHash;
 exports.getProgramHashFromAddress = getProgramHashFromAddress;
