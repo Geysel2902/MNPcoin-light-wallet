@@ -11,6 +11,13 @@ const expectedPublicKey = fixtures.publicKey;
 const expectedAddress = fixtures.address;
 const hexScriptHash = fixtures.scriptHash;
 
+
+/**
+ * mnpcoin-cli dumpprivkey cdpaajkxFQBTjpmz15Wot23JiAwxemfJAX KudxEakxJBqreFrShunUtk6LxLo2R899X8wuP81j82bF1zAvVVKC 
+ * <p>
+ * importprivkey
+ */
+
 describe('key-derivation', function() {
   it('private WIF derives expected private', function() {
     const privateKey = wif.decode(privateWif).privateKey.toString('hex');

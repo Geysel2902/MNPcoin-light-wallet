@@ -19,12 +19,40 @@ const getSingleSignatureRedeemScript = (pubkey) => {
   return scriptBufferHex;
 }
 
-const CreateSingleSignatureRedeemScript = (pubkey) => {
+const CreateSingleSignatureRedeemScript = (scriptHash) => {
+  
+  // Extra-fast test for pay-to-script-hash CScripts:
+//  return (this->size() == 23 &&
+//          this->at(0) == OP_HASH160 &&
+//          this->at(1) == 0x14 &&
+//          this->at(22) == OP_EQUAL);
+  
+// https://en.bitcoin.it/wiki/Script#Standard_Transaction_to_Bitcoin_address_.28pay-to-pubkey-hash.29
+//  if(     i == 0 && opcode != OP_DUP) return false;
+//  else if(i == 1 && opcode != OP_HASH160) return false;
+//  else if(i == 3 && opcode != OP_EQUALVERIFY) return false;
+//  else if(i == 4 && opcode != OP_CHECKSIG) return false;
+//  else if(i == 5) return false;
+  
   // console.log('CreateSingleSignatureRedeemScript.pubkey', pubkey);
-  const script = new Uint8Array(35);
-  script[0] = 33;
-  ArrayCopy.arraycopy(pubkey, 0, script, 1, 33);
-  script[34] = 0xAC;
+  const script = new Uint8Array(25);
+  // OP_DUP
+  script[0] = 0x76;
+  
+  // OP_HASH160
+  script[1] = 0xa9;
+
+  // push 20.
+  script[2] = 0x14;
+
+  ArrayCopy.arraycopy(scriptHash, 0, script, 3, 20);
+  
+//  OP_EQUALVERIFY
+  script[23] = 0x88;
+
+  // OP_CHECKSIG
+  script[24] = 0xac;
+  
   // console.log('CreateSingleSignatureRedeemScript.script', script);
   return script;
 }
@@ -41,11 +69,22 @@ const sha256hash160 = (input) => {
   return out;
 }
 
+const ToScriptHash = (publicKey) => {
+  const publicKeyBuff = Buffer.from(publicKey);
+  const digest = new ripemd160();
+  digest.update(publicKey, 0, publicKey.length);
+  digest.end();
+  const out = digest.read();
+  return out;
+}
+
 const ToCodeHash = (code) => {
   // console.log('ToCodeHash.code', code.toString('hex').toUpperCase());
   const f = sha256hash160(code);
+//  const f = sha256hash160(code);
   const g = new Uint8Array(f.length + 1);
   g[0] = 0x58;
+  // 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
   // console.log('ToCodeHash.f', f.toString('hex').toUpperCase());
   ArrayCopy.arraycopy(f, 0, g, 1, f.length);
   // console.log('ToCodeHash.g', g.toString('hex').toUpperCase());
@@ -55,7 +94,7 @@ const ToCodeHash = (code) => {
 }
 
 const getProgram = (publicKey) => {
-  return CreateSingleSignatureRedeemScript(publicKey);
+  return CreateSingleSignatureRedeemScript(sha256hash160(publicKey));
 }
 const getSingleSignProgramHash = (publicKey) => {
   return ToCodeHash(getProgram(publicKey));
