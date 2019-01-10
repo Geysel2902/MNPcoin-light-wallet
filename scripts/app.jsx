@@ -611,9 +611,10 @@ class App extends React.Component {
               </tr>
               <tr id="transaction-more-info">
                 <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">More Info</div>
+                  <div class="gray_on_white">More Info
                   <br/>Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
                   <br/>Or http://45.76.238.162:3001/
+                  </div>
                 </td>
               </tr>
               <tr id="from-address">

@@ -122,6 +122,7 @@ table, tr, td, th {
 .black_on_white {
   background-color: white;
   color: black;
+  font-weight: bold;
 }
 
 .white_on_black {
@@ -151,7 +152,8 @@ table, tr, td, th {
 
 .gray_on_white {
   background-color: #FAFBFD;
-  color: #C3CBD8;
+  color: #777777;
+  font-weight: bold;
 }
 
 .darkgray_border {

@@ -97,7 +97,7 @@ const getProgram = (publicKey) => {
   return CreateSingleSignatureRedeemScript(sha256hash160(publicKey));
 }
 const getSingleSignProgramHash = (publicKey) => {
-  return ToCodeHash(getProgram(publicKey));
+  return ToCodeHash(publicKey);
 }
 
 const getAddressFromPublicKey = (publicKey) => {
