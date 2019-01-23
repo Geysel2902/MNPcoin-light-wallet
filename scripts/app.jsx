@@ -391,12 +391,14 @@ const showSend = () => {
   show('to-address');
   show('confirm-and-see-fees');
   show('send-spacer-01');
+  show('mnpcoin-branding');
   selectButton('send');
 }
 
 const showReceive = () => {
   hideEverything();
   show('your-address');
+  show('mnpcoin-branding');
   selectButton('receive');
 }
 
@@ -404,6 +406,7 @@ const showTransactions = () => {
   hideEverything();
   show('transaction-more-info');
   show('transaction-list-large');
+  show('mnpcoin-branding');
   selectButton('transactions');
 }
 
@@ -473,7 +476,7 @@ class App extends React.Component {
             <table class="w100pct no_border">
               <tr>
                 <td class="black_on_offwhite h20px no_border user_select_none">
-                  <img class="valign_middle" src="artwork/mnpcoin-black-small.svg"></img>
+                  <img class="valign_middle" src="artwork/mnpcoin-black-small.jpg"></img>
                   MNPCoin</td>
               </tr>
               <tr>
@@ -481,22 +484,22 @@ class App extends React.Component {
               </tr>
               <tr>
                 <td id='home' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showHome()}>
-                  <img class="valign_middle" src="artwork/home.svg"></img>
+                  <img class="valign_middle" src="artwork/home.jpg"></img>
                   Home</td>
               </tr>
               <tr>
                 <td id='send' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showSend()}>
-                  <img class="valign_middle" src="artwork/send.svg"></img>
+                  <img class="valign_middle" src="artwork/send.jpg"></img>
                   Send</td>
               </tr>
               <tr>
                 <td id='receive' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showReceive()}>
-                  <img class="valign_middle" src="artwork/receive.svg"></img>
+                  <img class="valign_middle" src="artwork/receive.png"></img>
                   Receive</td>
               </tr>
               <tr>
                 <td id='transactions' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showTransactions()}>
-                  <img class="valign_middle" src="artwork/transactions.svg"></img>
+                  <img class="valign_middle" src="artwork/transactions.jpg"></img>
                   Transactions</td>
               </tr>
               <tr>
@@ -515,25 +518,28 @@ class App extends React.Component {
                     <a href="https://mnpcoin.org" onClick={(e) => onLinkClick(e)}>
                         <img class="branding_image" style={{
                             left: '175px',
-                            top: '10px'
+                            top: '10px' ,
+                            zIndex: 2
                           }} src="artwork/MPlogo2.svg"></img>
                         <img style={{
-                            left: '380px',
-                            top: '230px'
+                            left: '108px',
+                            top: '10px',
+                            width:'640px',
+                            height:'516px',
+                            zIndex: 1
                           }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
                     </a>
                   </div>
                 </td>
               </tr>
               <tr id="private-key-login">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Private Key</div>
-                  <p>Enter private key.</p>
-                  <p>
-                    <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
-                         onClick={(e) => showPrivateKeyEntry()}>Enter Key</div>
-                  </p>
-                </td>
+                <div class="gray_on_white">Private Key
+                    <p>Enter private key.</p>
+                    <p>
+                      <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
+                           onClick={(e) => showPrivateKeyEntry()}>Enter Key</div>
+                    </p>
+                </div>
               </tr>
              <tr id="private-key-entry">
                  <td class="black_on_white h20px darkgray_border">
@@ -611,9 +617,10 @@ class App extends React.Component {
               </tr>
               <tr id="transaction-more-info">
                 <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">More Info</div>
-                  <br/>Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
-                  <br/>Or http://45.76.238.162:3001/
+                <div class="gray_on_white">More Info
+                <br/>Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
+                <br/>Or http://45.76.238.162:3001/
+                </div>
                 </td>
               </tr>
               <tr id="from-address">
@@ -630,9 +637,10 @@ class App extends React.Component {
               </tr>
               <tr id="send-amount">
                 <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Send Amount</div>
+                  <div class="gray_on_white">Send Amount
                   <br/>
                   <input style={{fontFamily: 'monospace'}} type="text" size="64" id="sendAmount" placeholder="Send Amount"></input>
+                  </div>
                 </td>
               </tr>
               <tr id="to-address">
