@@ -29,3 +29,5 @@ npm run dist;
 ### helpful to find stray packages
 
 npm ls node-gyp
+
+./mnpcoind -testnet
