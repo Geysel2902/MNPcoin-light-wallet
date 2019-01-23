@@ -366,30 +366,30 @@ const showHome = () => {
 }
 
 const showSend = () => {
-  hideEverything();
-  show('from-address');
-  show('balance');
-  show('send-amount');
-  show('to-address');
-  show('confirm-and-see-fees');
-  show('send-spacer-01');
-  show('mnpcoin-branding');
-  selectButton('send');
+    hideEverything();
+    show( 'from-address' );
+    show( 'balance' );
+    show( 'send-amount' );
+    show( 'to-address' );
+    show( 'confirm-and-see-fees' );
+    show( 'send-spacer-01' );
+    show( 'mnpcoin-branding' );
+    selectButton( 'send' );
 }
 
 const showReceive = () => {
-  hideEverything();
-  show('your-address');
-  show('mnpcoin-branding');
-  selectButton('receive');
+    hideEverything();
+    show( 'your-address' );
+    show( 'mnpcoin-branding' );
+    selectButton( 'receive' );
 }
 
 const showTransactions = () => {
-  hideEverything();
-  show('transaction-more-info');
-  show('transaction-list-large');
-  show('mnpcoin-branding');
-  selectButton('transactions');
+    hideEverything();
+    show( 'transaction-more-info' );
+    show( 'transaction-list-large' );
+    show( 'mnpcoin-branding' );
+    selectButton( 'transactions' );
 }
 
 const showPrivateKeyEntry = () => {
@@ -448,235 +448,240 @@ const onLinkClick = ( event ) => {
 }
 
 class App extends React.Component {
-  render() {
-    return (<div>
-      <table class="w800h600px no_padding no_border">
-        <tr class="no_padding">
-          <td class="valign_top white_on_purple no_border" style={{
-              width: '150px'
-            }}>
-            <table class="w100pct no_border">
-              <tr>
-                <td class="black_on_offwhite h20px no_border user_select_none">
-                  <img class="valign_middle" src="artwork/mnpcoin-black-small.jpg"></img>
-                  MNPCoin</td>
-              </tr>
-              <tr>
-                <td class="white_on_purple h20px no_border"></td>
-              </tr>
-              <tr>
-                <td id='home' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showHome()}>
-                  <img class="valign_middle" src="artwork/home.jpg"></img>
-                  Home</td>
-              </tr>
-              <tr>
-                <td id='send' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showSend()}>
-                  <img class="valign_middle" src="artwork/send.jpg"></img>
-                  Send</td>
-              </tr>
-              <tr>
-                <td id='receive' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showReceive()}>
-                  <img class="valign_middle" src="artwork/receive.png"></img>
-                  Receive</td>
-              </tr>
-              <tr>
-                <td id='transactions' class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showTransactions()}>
-                  <img class="valign_middle" src="artwork/transactions.jpg"></img>
-                  Transactions</td>
-              </tr>
-              <tr>
-                <td class="white_on_purple h290px no_border"></td>
-              </tr>
-              <tr>
-                <td class="white_on_purple_with_hover h20px fake_button" onClick={(e) => showLogin()}>Logout</td>
-              </tr>
-            </table>
-          </td>
-          <td class="valign_top black_on_offwhite no_border no_padding">
-            <table class="w626px black_on_offwhite no_border no_padding">
-              <tr id="mnpcoin-branding" class="no_border no_padding">
-                <td class="h325px w595px no_border no_padding">
-                  <div class="branding_container">
-                    <a href="https://mnpcoin.org" onClick={(e) => onLinkClick(e)}>
-                        <img class="branding_image" style={{
-                            left: '175px',
-                            top: '10px' ,
-                            zIndex: 2
-                          }} src="artwork/MPlogo2.svg"></img>
-                        <img style={{
-                            left: '108px',
-                            top: '10px',
-                            width:'640px',
-                            height:'516px',
-                            zIndex: 1
-                          }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr id="private-key-login">
-                <div class="gray_on_white">Private Key
+    render() {
+        return ( <div>
+            <table class="w800h600px no_padding no_border">
+                <tr class="no_padding">
+                    <td class="valign_top white_on_purple no_border" style={{
+                        width: '150px'
+                    }}>
+                        <table class="w100pct no_border">
+                            <tr>
+                                <td class="black_on_offwhite h20px no_border user_select_none">
+                                    <img class="valign_middle" src="artwork/mnpcoin-black-small.jpg"></img>
+                                    MNPCoin</td>
+                            </tr>
+                            <tr>
+                                <td class="white_on_purple h20px no_border"></td>
+                            </tr>
+                            <tr>
+                                <td id='home' class="white_on_purple_with_hover h20px fake_button" onClick={( e ) => showHome()}>
+                                    <img class="valign_middle" src="artwork/home.jpg"></img>
+                                    Home</td>
+                            </tr>
+                            <tr>
+                                <td id='send' class="white_on_purple_with_hover h20px fake_button" onClick={( e ) => showSend()}>
+                                    <img class="valign_middle" src="artwork/send.jpg"></img>
+                                    Send</td>
+                            </tr>
+                            <tr>
+                                <td id='receive' class="white_on_purple_with_hover h20px fake_button" onClick={( e ) => showReceive()}>
+                                    <img class="valign_middle" src="artwork/receive.png"></img>
+                                    Receive</td>
+                            </tr>
+                            <tr>
+                                <td id='transactions' class="white_on_purple_with_hover h20px fake_button" onClick={( e ) => showTransactions()}>
+                                    <img class="valign_middle" src="artwork/transactions.jpg"></img>
+                                    Transactions</td>
+                            </tr>
+                            <tr>
+                                <td class="white_on_purple h290px no_border"></td>
+                            </tr>
+                            <tr>
+                                <td class="white_on_purple_with_hover h20px fake_button" onClick={( e ) => showLogin()}>Logout</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="valign_top black_on_offwhite no_border no_padding">
+                        <table class="w626px black_on_offwhite no_border no_padding">
+                            <tr id="mnpcoin-branding" class="no_border no_padding">
+                                <td class="h325px w595px no_border no_padding">
+                                    <div class="branding_container">
+                                        <a href="https://mnpcoin.org" onClick={( e ) => onLinkClick( e )}>
+                                            <img class="branding_image" style={{
+                                                left: '175px',
+                                                top: '10px',
+                                                zIndex: 2
+                                            }} src="artwork/MPlogo2.svg"></img>
+                                            <img style={{
+                                                left: '108px',
+                                                top: '10px',
+                                                width: '640px',
+                                                height: '516px',
+                                                zIndex: 1
+                                            }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="private-key-login">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Private Key
                     <p>Enter private key.</p>
-                    <p>
-                      <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
-                           onClick={(e) => showPrivateKeyEntry()}>Enter Key</div>
-                    </p>
+                                        <p>
+                                            <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
+                                                onClick={( e ) => showPrivateKeyEntry()}>Enter Key</div>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="private-key-entry">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Private Key</div>
+                                    <br />
+                                    <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
+                                    <br />
+                                    <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
+                                        onClick={( e ) => getPublicKeyFromPrivateKey()}>Use Private Key</div>
+                                </td>
+                            </tr>
+                            <tr id="your-address">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Your Address</div>
+                                    <br />{address}
+                                </td>
+                            </tr>
+                            <tr id="transaction-list-small">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white ` display_inline_block">Previous Transactions (2 total)</div>
+                                    <div class="gray_on_white float_right display_inline_block">1234 Blocks</div>
+                                    <br />
+                                    <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
+                                        {
+                                            parsedTransactionHistory.map(( item, index ) => {
+                                                if ( index > 2 ) {
+                                                    return '';
+                                                }
+                                                return ( <tr>
+                                                    <td class="no_border no_padding">{item.n}</td>
+                                                    <td class="no_border no_padding">
+                                                        <TransactionHistoryElementIcon item={item} />{/*item.type*/}
+                                                    </td>
+                                                    <td class="no_border no_padding">{item.value} ELA</td>
+                                                    <td class="no_border no_padding">
+                                                        <a href={item.txDetailsUrl} onClick={( e ) => onLinkClick( e )}>{item.txHash}</a>
+                                                    </td>
+                                                    <td class="no_border no_padding">
+                                                        {item.time}
+                                                    </td>
+                                                </tr> )
+                                            } )
+                                        }
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr id="transaction-list-large">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white ` display_inline_block">Previous Transactions (22 total)</div>
+                                    <div class="gray_on_white float_right display_inline_block">1234 Blocks</div>
+                                    <p>
+                                        <div class="h470px overflow_auto">
+                                            <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
+                                                {
+                                                    parsedTransactionHistory.map(( item, index ) => {
+                                                        return ( <tr>
+                                                            <td class="no_border no_padding">{item.n}</td>
+                                                            <td class="no_border no_padding">
+                                                                <TransactionHistoryElementIcon item={item} />{/*item.type*/}
+                                                            </td>
+                                                            <td class="no_border no_padding">{item.value} ELA</td>
+                                                            <td class="no_border no_padding">
+                                                                <a href={item.txDetailsUrl} onClick={( e ) => onLinkClick( e )}>{item.txHash}</a>
+                                                            </td>
+                                                            <td class="no_border no_padding">
+                                                                {item.time}
+                                                            </td>
+                                                        </tr> )
+                                                    } )
+                                                }
+                                            </table>
+                                        </div>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr id="transaction-more-info">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">More Info
+                <br />Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
+                <br />Or http://45.76.238.162:3001/
                 </div>
-              </tr>
-             <tr id="private-key-entry">
-                 <td class="black_on_white h20px darkgray_border">
-                   <div class="gray_on_white">Private Key</div>
-                   <br/>
-                   <input style={{fontFamily: 'monospace'}} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
-                   <br/>
-                   <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
-                   onClick={(e) => getPublicKeyFromPrivateKey()}>Use Private Key</div>
-                 </td>
-               </tr>
-              <tr id="your-address">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Your Address</div>
-                  <br/>{address}
-                </td>
-              </tr>
-              <tr id="transaction-list-small">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white ` display_inline_block">Previous Transactions (2 total)</div>
-                  <div class="gray_on_white float_right display_inline_block">1234 Blocks</div>
-                  <br/>
-                  <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
-                    {
-                      parsedTransactionHistory.map((item, index) => {
-                        if(index > 2) {
-                            return '';
-                        }
-                        return (<tr>
-                          <td class="no_border no_padding">{item.n}</td>
-                          <td class="no_border no_padding">
-                            <TransactionHistoryElementIcon item={item}/>{/*item.type*/}
-                          </td>
-                          <td class="no_border no_padding">{item.value} ELA</td>
-                          <td class="no_border no_padding">
-                          <a href={item.txDetailsUrl} onClick={(e) => onLinkClick(e)}>{item.txHash}</a>
-                          </td>
-                          <td class="no_border no_padding">
-                            {item.time}
-                          </td>
-                        </tr>)
-                      })
-                    }
-                  </table>
-                </td>
-              </tr>
-              <tr id="transaction-list-large">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white ` display_inline_block">Previous Transactions (22 total)</div>
-                  <div class="gray_on_white float_right display_inline_block">1234 Blocks</div>
-                  <p>
-                    <div class="h470px overflow_auto">
-                      <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
-                      {
-                        parsedTransactionHistory.map((item, index) => {
-                          return (<tr>
-                            <td class="no_border no_padding">{item.n}</td>
-                            <td class="no_border no_padding">
-                              <TransactionHistoryElementIcon item={item}/>{/*item.type*/}
-                            </td>
-                            <td class="no_border no_padding">{item.value} ELA</td>
-                            <td class="no_border no_padding">
-                            <a href={item.txDetailsUrl} onClick={(e) => onLinkClick(e)}>{item.txHash}</a>
-                            </td>
-                            <td class="no_border no_padding">
-                              {item.time}
-                            </td>
-                          </tr>)
-                        })
-                      }
-                    </table>
-                    </div>
-                  </p>
-                </td>
-              </tr>
-              <tr id="transaction-more-info">
-                <td class="black_on_white h20px darkgray_border">
-                <div class="gray_on_white">More Info
-                <br/>Tap on the transaction ID to view further details or visit http://45.76.238.162:3001/
-                <br/>Or http://45.76.238.162:3001/
-                </div>
-                </td>
-              </tr>
-              <tr id="from-address">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">From Address</div>
-                  <p>{address}</p>
-                </td>
-              </tr>
-              <tr id="balance">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Balance</div>
-                  <p>{balance}</p>
-                </td>
-              </tr>
-              <tr id="send-amount">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Send Amount
-                  <br/>
-                  <input style={{fontFamily: 'monospace'}} type="text" size="64" id="sendAmount" placeholder="Send Amount"></input>
-                  </div>
-                </td>
-              </tr>
-              <tr id="to-address">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">To Address</div>
-                  <br/>
-                  <input style={{fontFamily: 'monospace'}} type="text" size="64" id="sendToAddress" placeholder="Send To Address"></input>
-                </td>
-              </tr>
-              <tr id="send-spacer-01">
-                <td class="black_on_white h200px no_border">
-                  <div class="gray_on_white">Balance Status</div>
-                  <br/>
-                  {balanceStatus}
-                  <br/>
-                  <div class="gray_on_white">Send Status</div>
-                  <br/>
-                  <table>
-                  {
-                    sendToAddressStatuses.map((sendToAddressStatus, index) => {
-                      return (<tr>
-                        <td>{sendToAddressStatus}</td>
-                      </tr>)
-                    })
-                  }
-                </table>
-                </td>
-              </tr>
-              <tr id="confirm-and-see-fees">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Confirm</div>
-                  <p>Tap ‘Next’ to confirm the fees for your transaction.</p>
-                  <p>
-                    <div class="lightgray_border white_on_black bordered display_inline_block float_right fake_button rounded padding_5px"
-                      onClick={(e) => sendAmountToAddress()}>Next</div>
-                  </p>
-                </td>
-              </tr>
-              <tr id="fees">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white display_inline_block">Fees</div>
-                  <div class="black_on_white float_right display_inline_block">Estimated New Balance</div>
-                </td>
-              </tr>
-              <tr id="cancel-confirm-transaction">
-                <td class="black_on_white h20px darkgray_border">
-                  <div class="gray_on_white">Confirm</div>
-                  <p>Your balance will be deducted 10.5 ELA + 0.000045 ELA in fees.</p>
-                  <p>
-                    <div class="white_on_black lightgray_border bordered display_inline_block float_right fake_button rounded padding_5px">Confirm</div>
-                    <div class="white_on_gray darkgray_border bordered display_inline_block float_right fake_button rounded padding_5px">Cancel</div>
-                  </p>
-                </td>
-              </tr>
+                                </td>
+                            </tr>
+                            <tr id="from-address">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">From Address</div>
+                                    <p>{address}</p>
+                                </td>
+                            </tr>
+                            <tr id="balance">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Balance</div>
+                                    <p>{balance}</p>
+                                </td>
+                            </tr>
+                            <tr id="send-amount">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Send Amount
+                  <br />
+                                        <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="sendAmount" placeholder="Send Amount"></input>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="to-address">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">To Address</div>
+                                    <br />
+                                    <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="sendToAddress" placeholder="Send To Address"></input>
+                                </td>
+                            </tr>
+                            <tr id="send-spacer-01">
+                                <td class="black_on_white h200px no_border">
+                                    <div class="gray_on_white">Balance Status</div>
+                                    <br />
+                                    {balanceStatus}
+                                    <br />
+                                    <div class="gray_on_white">Send Status</div>
+                                    <br />
+                                    <table>
+                                        {
+                                            sendToAddressStatuses.map(( sendToAddressStatus, index ) => {
+                                                return ( <tr>
+                                                    <td>{sendToAddressStatus}</td>
+                                                </tr> )
+                                            } )
+                                        }
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr id="confirm-and-see-fees">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Confirm</div>
+                                    <p>Tap ‘Next’ to confirm the fees for your transaction.</p>
+                                    <p>
+                                        <div class="lightgray_border white_on_black bordered display_inline_block float_right fake_button rounded padding_5px"
+                                            onClick={( e ) => sendAmountToAddress()}>Next</div>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr id="fees">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white display_inline_block">Fees</div>
+                                    <div class="black_on_white float_right display_inline_block">Estimated New Balance</div>
+                                </td>
+                            </tr>
+                            <tr id="cancel-confirm-transaction">
+                                <td class="black_on_white h20px darkgray_border">
+                                    <div class="gray_on_white">Confirm</div>
+                                    <p>Your balance will be deducted 10.5 ELA + 0.000045 ELA in fees.</p>
+                                    <p>
+                                        <div class="white_on_black lightgray_border bordered display_inline_block float_right fake_button rounded padding_5px">Confirm</div>
+                                        <div class="white_on_gray darkgray_border bordered display_inline_block float_right fake_button rounded padding_5px">Cancel</div>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
             </table>
         </div> )
     }
