@@ -1,5 +1,5 @@
 const EC = require('elliptic').ec;
-const curve = new EC('p256');
+const curve = new EC('secp256k1');
 
 const getPublic = (privateKey) => {
   const rawPrivateKey = Buffer.from(privateKey, 'hex');

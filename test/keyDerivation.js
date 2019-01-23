@@ -11,6 +11,13 @@ const expectedPublicKey = fixtures.publicKey;
 const expectedAddress = fixtures.address;
 const hexScriptHash = fixtures.scriptHash;
 
+
+/**
+ * mnpcoin-cli dumpprivkey cdpaajkxFQBTjpmz15Wot23JiAwxemfJAX KudxEakxJBqreFrShunUtk6LxLo2R899X8wuP81j82bF1zAvVVKC 
+ * <p>
+ * importprivkey
+ */
+
 describe('key-derivation', function() {
   it('private WIF derives expected private', function() {
     const privateKey = wif.decode(privateWif).privateKey.toString('hex');
@@ -33,5 +40,15 @@ describe('key-derivation', function() {
     const rawScriptHash = Buffer.from(hexScriptHash, 'hex')
     const actualAddress = AddressTranscoder.getAddressFromProgramHash(rawScriptHash);
     assert.equal(actualAddress, expectedAddress, 'Address must match expected');
+  });
+  it('address derives expected scripthash', function() {
+    const expectedScriptHash = hexScriptHash;
+    const actualScriptHash = AddressTranscoder.getProgramHashFromAddress(expectedAddress).toString('hex');
+    assert.equal(actualScriptHash, expectedScriptHash, 'ScriptHash must match expected');
+  });
+  it('public ECDSA derives expected scripthash', function() {
+    const expectedScriptHash = hexScriptHash;
+    const actualScriptHash = AddressTranscoder.getProgramHashFromPublicKey(expectedPublicKey).toString('hex');
+    assert.equal(actualScriptHash, expectedScriptHash, 'ScriptHash must match expected');
   });
 });
