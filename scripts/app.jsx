@@ -546,28 +546,30 @@ class App extends React.Component {
                                     <div class="gray_on_white ` display_inline_block">Previous Transactions (2 total)</div>
                                     <div class="gray_on_white float_right display_inline_block">1234 Blocks</div>
                                     <br />
-                                    <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
-                                        {
-                                            parsedTransactionHistory.map(( item, index ) => {
-                                                if ( index > 2 ) {
-                                                    return '';
-                                                }
-                                                return ( <tr>
-                                                    <td class="no_border no_padding">{item.n}</td>
-                                                    <td class="no_border no_padding">
-                                                        <TransactionHistoryElementIcon item={item} />{/*item.type*/}
-                                                    </td>
-                                                    <td class="no_border no_padding">{item.value} ELA</td>
-                                                    <td class="no_border no_padding">
-                                                        <a href={item.txDetailsUrl} onClick={( e ) => onLinkClick( e )}>{item.txHash}</a>
-                                                    </td>
-                                                    <td class="no_border no_padding">
-                                                        {item.time}
-                                                    </td>
-                                                </tr> )
-                                            } )
-                                        }
-                                    </table>
+                                    <div class="gray_on_white">
+                                        <table class="w100pct black_on_offwhite no_border whitespace_nowrap">
+                                            {
+                                                parsedTransactionHistory.map(( item, index ) => {
+                                                    if ( index > 2 ) {
+                                                        return '';
+                                                    }
+                                                    return ( <tr>
+                                                        <td class="no_border no_padding">{item.n}</td>
+                                                        <td class="no_border no_padding">
+                                                            <TransactionHistoryElementIcon item={item} />{/*item.type*/}
+                                                        </td>
+                                                        <td class="no_border no_padding">{item.value} ELA</td>
+                                                        <td class="no_border no_padding">
+                                                            <a href={item.txDetailsUrl} onClick={( e ) => onLinkClick( e )}>{item.txHash}</a>
+                                                        </td>
+                                                        <td class="no_border no_padding">
+                                                            {item.time}
+                                                        </td>
+                                                    </tr> )
+                                                } )
+                                            }
+                                        </table>
+                                    </div>
                                 </td>
                             </tr>
                             <tr id="transaction-list-large">
