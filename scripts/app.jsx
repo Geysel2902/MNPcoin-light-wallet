@@ -504,21 +504,21 @@ class App extends React.Component {
                                                 top: '10px',
                                                 zIndex: 2
                                             }} src="artwork/MPlogo2.svg"></img>
-                                            <img style={{
-                                                left: '148px',
-                                                top: '10px',
-                                                width: '635px',
-                                                height: '546px',
-                                                zIndex: 1
-                                            }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
                                         </a>
+                                        <img style={{
+                                            left: '148px',
+                                            top: '10px',
+                                            width: '635px',
+                                            height: '546px',
+                                            zIndex: 1
+                                        }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
                                     </div>
                                 </td>
                             </tr>
                             <tr id="private-key-login">
                                 <td class="black_on_white h20px darkgray_border">
                                     <div class="gray_on_white">Private Key
-                    <p>Enter private key.</p>
+                                        <p>Enter private key.</p>
                                         <p>
                                             <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
                                                 onClick={( e ) => showPrivateKeyEntry()}>Enter Key</div>
@@ -528,8 +528,9 @@ class App extends React.Component {
                             </tr>
                             <tr id="private-key-entry">
                                 <td class="black_on_white h20px darkgray_border">
-                                    <div class="gray_on_white">Private Key</div>
-                                    <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
+                                    <div style={{ color: '#FAFBFD' }}>Private Key<p />
+                                        <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
+                                    </div>
                                     <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
                                         onClick={( e ) => getPublicKeyFromPrivateKey()}>Use Private Key</div>
                                 </td>
