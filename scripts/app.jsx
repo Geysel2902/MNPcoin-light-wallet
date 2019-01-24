@@ -504,10 +504,10 @@ class App extends React.Component {
                                                 zIndex: 2
                                             }} src="artwork/MPlogo2.svg"></img>
                                             <img style={{
-                                                left: '108px',
+                                                left: '148px',
                                                 top: '10px',
-                                                width: '640px',
-                                                height: '516px',
+                                                width: '635px',
+                                                height: '546px',
                                                 zIndex: 1
                                             }} class="branding_image" src="artwork/fondo-wallet.jpg"></img>
                                         </a>
