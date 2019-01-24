@@ -528,9 +528,7 @@ class App extends React.Component {
                             <tr id="private-key-entry">
                                 <td class="black_on_white h20px darkgray_border">
                                     <div class="gray_on_white">Private Key</div>
-                                    <br />
                                     <input style={{ fontFamily: 'monospace' }} type="text" size="64" id="privateKey" placeholder="Private Key"></input>
-                                    <br />
                                     <div class="white_on_gray bordered display_inline_block float_right fake_button rounded padding_5px"
                                         onClick={( e ) => getPublicKeyFromPrivateKey()}>Use Private Key</div>
                                 </td>
