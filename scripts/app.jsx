@@ -395,6 +395,7 @@ const showTransactions = () => {
 const showPrivateKeyEntry = () => {
     hideEverything();
     show( 'private-key-entry' );
+    show( 'mnpcoin-branding' );
 }
 
 const clearGlobalData = () => {
